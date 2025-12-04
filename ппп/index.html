@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skystep - Образовательная платформа</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 md:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3 flex-shrink-0 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0 transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110 shadow-lg shadow-purple-500/50">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Skystep</span>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-blue-400 font-semibold hover:text-purple-400 transition-all duration-300 relative group">
+                        Главная
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="courses.html" class="nav-link hover:text-blue-400 transition-all duration-300 font-medium relative group">
+                        Курсы
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#about" class="nav-link hover:text-blue-400 transition-all duration-300 font-medium relative group">
+                        О проекте
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </nav>
+
+                <!-- Auth Buttons -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="openAuthModal()" class="px-6 py-2 text-blue-400 font-semibold hover:text-purple-400 rounded-lg transition-all duration-300 relative group">
+                        Войти
+                        <span class="absolute inset-0 rounded-lg bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    </button>
+                    <button onclick="openAuthModal()" class="btn-primary px-6 py-4 rounded-xl font-semibold text-white inline-block">
+                        Регистрация
+                        <i class="fas fa-rocket ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white relative">
+        <div class="container mx-auto px-6 py-24 relative z-10">
+            <div class="hero-content max-w-5xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl font-black mb-8 fade-in-up animated-gradient leading-tight" style="animation-delay: 0.2s;">
+                    Обучение нового поколения
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 opacity-90 fade-in-up max-w-3xl mx-auto leading-relaxed" style="animation-delay: 0.4s;">
+                    Современная образовательная платформа с интерактивными курсами, 
+                    <span class="font-semibold">персональным подходом</span> и отслеживанием прогресса
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in-up" style="animation-delay: 0.6s">
+                    <a href="courses.html" class="btn-primary px-10 py-5 rounded-xl font-bold text-lg text-white inline-flex items-center justify-center">
+                        Начать обучение
+                        <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                    <a href="#features" class="btn-secondary px-10 py-5 rounded-xl font-bold text-lg inline-flex items-center justify-center">
+                        <i class="fas fa-play-circle mr-3"></i>
+                        Узнать больше
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+            <div class="flex flex-col items-center space-y-2">
+                <span class="text-sm opacity-70">Прокрутите вниз</span>
+                <i class="fas fa-chevron-down text-2xl opacity-70"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-spacing bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black mb-6 text-gray-800 scroll-reveal">
+                    Почему выбирают <span class="animated-gradient">Skystep</span>?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto scroll-reveal">
+                    Все инструменты для эффективного обучения в одном месте
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card scroll-reveal">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 transform rotate-3 group-hover:rotate-6 transition-transform shadow-lg shadow-blue-500/50">
+                        <i class="fas fa-book-open text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Интерактивные курсы</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Видеоуроки, практические задания и тесты для полного усвоения материала
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card scroll-reveal">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 transform -rotate-3 group-hover:-rotate-6 transition-transform shadow-lg shadow-purple-500/50">
+                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Отслеживание прогресса</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Детальная статистика обучения и рекомендации по улучшению результатов
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card scroll-reveal">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 transform rotate-3 group-hover:rotate-6 transition-transform shadow-lg shadow-green-500/50">
+                        <i class="fas fa-users text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Сообщество</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Общение с преподавателями и одноклассниками, обмен опытом
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card scroll-reveal">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 transform -rotate-3 group-hover:-rotate-6 transition-transform shadow-lg shadow-orange-500/50">
+                        <i class="fas fa-mobile-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Доступ везде</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Учитесь в любое время и в любом месте с любого устройства
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card scroll-reveal">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 transform rotate-3 group-hover:rotate-6 transition-transform shadow-lg shadow-cyan-500/50">
+                        <i class="fas fa-certificate text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Сертификаты</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Получайте официальные сертификаты об окончании курсов
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card scroll-reveal">
+                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 transform -rotate-3 group-hover:-rotate-6 transition-transform shadow-lg shadow-indigo-500/50">
+                        <i class="fas fa-graduation-cap text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Опытные преподаватели</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Учитесь у лучших специалистов с многолетним опытом преподавания
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Preview Section -->
+    <section class="section-spacing bg-gray-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-pink-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black mb-6 text-gray-800 scroll-reveal">
+                    Популярные <span class="animated-gradient">курсы</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto scroll-reveal">
+                    Выберите курс и начните обучение прямо сейчас
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="course-card scroll-reveal">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&h=300&fit=crop" 
+                             alt="Математика" 
+                             class="course-card-image w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 z-10">
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">Математика</span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <h3 class="text-xl font-bold mb-2 text-white">Алгебра и начала анализа</h3>
+                        <p class="text-gray-400 text-sm mb-4">Изучение функций, производных и интегралов</p>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>Петрова М.А.</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>245</span>
+                            </div>
+                        </div>
+                        <a href="courses.html" class="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                            Начать курс
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card scroll-reveal">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=300&fit=crop" 
+                             alt="Физика" 
+                             class="course-card-image w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 z-10">
+                            <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">Физика</span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <h3 class="text-xl font-bold mb-2 text-white">Механика и термодинамика</h3>
+                        <p class="text-gray-400 text-sm mb-4">Основы классической механики и термодинамики</p>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>Сидоров Д.В.</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>189</span>
+                            </div>
+                        </div>
+                        <a href="courses.html" class="block w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                            Начать курс
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card scroll-reveal">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=300&fit=crop" 
+                             alt="История" 
+                             class="course-card-image w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 z-10">
+                            <span class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">История</span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <h3 class="text-xl font-bold mb-2 text-white">История России</h3>
+                        <p class="text-gray-400 text-sm mb-4">Россия в XIX-XX веках</p>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>Козлова Е.С.</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>312</span>
+                            </div>
+                        </div>
+                        <a href="courses.html" class="block w-full bg-gradient-to-r from-green-600 to-teal-600 text-white text-center py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                            Начать курс
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="courses.html" class="btn-secondary px-10 py-5 rounded-xl font-bold text-lg inline-flex items-center">
+                    Посмотреть все курсы
+                    <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section-spacing bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="stat-card scroll-reveal">
+                    <div class="stat-number mb-4">10,000+</div>
+                    <p class="text-lg opacity-90">Активных учеников</p>
+                </div>
+                <div class="stat-card scroll-reveal">
+                    <div class="stat-number mb-4">500+</div>
+                    <p class="text-lg opacity-90">Онлайн курсов</p>
+                </div>
+                <div class="stat-card scroll-reveal">
+                    <div class="stat-number mb-4">150+</div>
+                    <p class="text-lg opacity-90">Преподавателей</p>
+                </div>
+                <div class="stat-card scroll-reveal">
+                    <div class="stat-number mb-4">98%</div>
+                    <p class="text-lg opacity-90">Успешных выпускников</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-spacing bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-5xl md:text-6xl font-black mb-6 text-gray-800">
+                        О <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">проекте</span>
+                    </h2>
+                </div>
+                <div class="prose prose-lg max-w-none scroll-reveal">
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                        <strong class="text-white text-2xl">Skystep</strong> — это современная образовательная платформа, 
+                        созданная для нового поколения учеников. Мы объединяем лучшие практики 
+                        традиционного образования с <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">инновационными технологиями</span>.
+                    </p>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Наша миссия — сделать качественное образование доступным каждому. 
+                        Мы предоставляем интерактивные курсы, персональный подход к обучению 
+                        и мощные инструменты для отслеживания прогресса.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto relative z-10">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/50">
+                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Skystep</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Образовательная платформа для эффективного обучения</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Навигация</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors flex items-center group"><i class="fas fa-home mr-2 group-hover:translate-x-1 transition-transform"></i>Главная</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition-colors flex items-center group"><i class="fas fa-book mr-2 group-hover:translate-x-1 transition-transform"></i>Курсы</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors flex items-center group"><i class="fas fa-info-circle mr-2 group-hover:translate-x-1 transition-transform"></i>О проекте</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Контакты</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-400"></i>info@skystep.ru</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-3 text-purple-400"></i>+7 (999) 123-45-67</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Социальные сети</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-blue-500/50"><i class="fab fa-vk text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-purple-500/50"><i class="fab fa-telegram text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-pink-500/50"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Auth Modal -->
+    <div id="auth-modal" class="fixed inset-0 z-50 items-center justify-center" style="display: none;">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 p-10 relative">
+            <button onclick="closeAuthModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <div class="text-center mb-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/50">
+                    <i class="fas fa-user text-white text-3xl"></i>
+                </div>
+                <h2 class="text-3xl font-black mb-4 text-gray-800">Вход / Регистрация</h2>
+                <p class="text-gray-600">Ждите в будущем)</p>
+            </div>
+            <button onclick="closeAuthModal()" class="w-full btn-primary py-4 rounded-xl font-bold text-lg">
+                Понятно
+            </button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function openAuthModal() {
+            document.getElementById('auth-modal').style.display = 'flex';
+        }
+        function closeAuthModal() {
+            document.getElementById('auth-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
